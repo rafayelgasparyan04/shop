@@ -1,0 +1,9 @@
+<div class="col-3">
+	<div class="prod_menu_title_div">կատեգորիաներ</div>
+  <a class="btn btn-light menu_prod_btn" href="{% url 'products' %}">Ամբողջ տեսականին</a>
+	{% for category in categ %}
+<span>
+  <a style="padding-left: 10%;" class="btn btn-light menu_prod_btn" href="{% url 'cat_set' cat=category.slug %}">- {{ category.name }}</a>
+</span>
+	{% endfor %}
+</div>

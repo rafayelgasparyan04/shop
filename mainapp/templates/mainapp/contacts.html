@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Հետադարձ կապ:
+{% endblock %}
+
+{% block main %}
+
+<div class="div_contact">
+    <div class="container page-content col-11">
+        <div class="row">
+          <div class="col-12">
+            <p class="p_message">{{ mess }}</p>
+              <h5 style="padding-bottom: 20px;">Հետադարձ կապ</h5>
+              <form action="send_comment" method="POST" class="contact-form m-b-0">
+                 {% csrf_token %} 
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group comment-form-author">
+                      <label for="name" class="control-label">Անուն <span class="required red-text">*</span></label>
+                      {% if user.is_authenticated %}
+                      <input id="name" required class="form-control" name="name" type="text" value="{{ user.get_full_name }}">
+                      {% else %}
+                      <input id="name" required class="form-control" name="name" type="text" value="">
+                      {% endif %}
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group comment-form-email">
+                      <label for="email" class="control-label">Էլ․ Փոստ <span class="required red-text">*</span></label>
+                      {% if user.is_authenticated %}
+                      <input id="email" required class="form-control" name="email" type="text" value="{{ user.email }}">
+                      {% else %}
+                      <input id="email" required class="form-control" name="email" type="text" value="">
+                      {% endif %}
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="form-group comment-form-url">
+                      <label for="phone" class="control-label">Հեռախոսահամար</label>
+                      {% if user.is_authenticated %}
+                      <input id="phone"  class="form-control" name="phone" type="text" value="{{ user.profile.phone }}">
+                      {% else %}
+                      <input id="phone"  class="form-control" name="phone" type="text" value="">
+                      {% endif %}
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="form-group comment-form-url">
+                      <label for="title" class="control-label">Վերնագիր <span class="required red-text">*</span></label>
+                      <input id="title" required class="form-control" name="title" type="text">
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="form-group comment-form-comment">
+                      <label for="comment" class="control-label">Ձեր նամակը <span class="required red-text">*</span></label>
+                      <textarea id="comment" rows="12" class="form-control textarea_hg" name="comment"></textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-submit">
+                  <button type="submit" class="btn btn-warning submit">Ուղարկել</button>
+                  <span class="form-message"></span>
+                </div>
+              </form><!-- .contact-form -->
+          </div>  
+        </div>
+    </div>
+</div>
+
+{% endblock %}

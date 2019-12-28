@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ prod.name }}-ի մասին
+{% endblock %}
+
+{% block main %}
+<div style="display: flex;">
+	<div class="col-6">
+		<img style="width: 100%;" src="{{ prod.image.url }}" alt="">
+	</div>
+	<div class="col-6">
+		<span class="prod_det_nmprice"><h1>{{ prod.name }}</h1> <h2>{{ prod.price }}դր.</h2> </span>
+		<h5>{{ prod.add_date }}</h5>
+		<div>
+			{% for e in '12345'|make_list %}
+				{% if forloop.counter <= prod.rate %}
+					<a href="{% url 'rate_prd' prd=prod.slug rt=forloop.counter %}"><i class="fas fa-star"></i></a>
+				{% else %}
+					<a href="{% url 'rate_prd' prd=prod.slug rt=forloop.counter %}"><i class="far fa-star"></i></a>
+				{% endif %}
+			{% endfor %}
+			({{ prod.rate | floatformat:-2 }}) <sup>Գնահատել են՝ {{ prod.rate_count }}</sup>
+		</div>
+		<h6 class="dd_nav_menu_div"><strong>կատեգորիաներ-</strong>{% for categ in prod.category.all %} <a href="{% url 'cat_set' cat=categ.slug %}">{{ categ }}</a> {% endfor %}</h6>
+		<p>{{ prod.about }}</p>
+
+  {% if user.is_authenticated %}
+    <form style="display: grid;" action="#" method="POST">
+    {% csrf_token %}
+    <label for="subject">Մեկնաբանություն</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px;border: 2px solid #F0AD4E;"></textarea>
+
+    <input class="comm_send_btn" type="submit" value="Ուղարկել">
+
+  </form>
+  {% endif %}
+
+	</div>
+</div>
+
+
+{% endblock %}

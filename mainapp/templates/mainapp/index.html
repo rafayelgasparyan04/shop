@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Գլխավոր էջ:
+{% endblock %}
+
+{% block main %}
+<!--Carousel Wrapper-->
+{% if ca %}
+<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+  <!--Indicators-->
+<!--   <ol class="carousel-indicators">
+  <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+  <li data-target="#carousel-example-2" data-slide-to="1"></li>
+  <li data-target="#carousel-example-2" data-slide-to="2"></li>
+</ol> -->
+  <!--/.Indicators-->
+  <!--Slides-->
+  <div class="carousel-inner">
+  {% for c in ca %}
+  {% if forloop.first %} 
+    <div class="carousel-item active">
+  {% else %}
+    <div class="carousel-item">
+  {% endif %}
+      <div class="view">
+        <img class="d-block w-100" src="{{ c.image.url }}">
+        <div class="mask rgba-black-light"></div>
+      </div>
+      <div class="carousel-caption">
+        <h3 class="h3-responsive">{{ c.name }}</h3>
+        <p>{{ c.text }}</p>
+      </div>
+    </div>
+  {% endfor %}
+    <!--<div class="carousel-item">
+      Mask color
+      <div class="view">
+        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"
+          alt="Second slide">
+        <div class="mask rgba-black-strong"></div>
+      </div>
+      <div class="carousel-caption">
+        <h3 class="h3-responsive">Strong mask</h3>
+        <p>Secondary text</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      Mask color
+      <div class="view">
+        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg"
+          alt="Third slide">
+        <div class="mask rgba-black-slight"></div>
+      </div>
+      <div class="carousel-caption">
+        <h3 class="h3-responsive">Slight mask</h3>
+        <p>Third text</p>
+      </div>
+    </div> -->
+  </div>
+  <!--/.Slides-->
+  <!--Controls-->
+  <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  <!--/.Controls-->
+</div>
+<!--/.Carousel Wrapper-->
+{% endif %}
+
+<div style="border-bottom: 4px solid;">
+	<span class="lefttext">Ամենաշատ վաճառվողը</span>
+</div>
+
+		<div class="card-deck">
+		  <div class="card">
+		    <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg" class="card-img-top" alt="...">
+		    <div class="card-body">
+		      <h5 class="card-title">Card title</h5>
+		      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+		      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+		    </div>
+		  </div>
+		  <div class="card">
+		    <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg" class="card-img-top" alt="...">
+		    <div class="card-body">
+		      <h5 class="card-title">Card title</h5>
+		      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+		      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+		    </div>
+		  </div>
+		  <div class="card">
+		    <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg" class="card-img-top" alt="...">
+		    <div class="card-body">
+		      <h5 class="card-title">Card title</h5>
+		      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+		      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+		    </div>
+		  </div>
+		</div>
+
+
+<div style="border-bottom: 4px solid;">
+	<span class="lefttext">Նոր ապրանքներ</span>
+</div>
+
+		<div class="card-deck">
+		  <div class="card">
+		    <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg" class="card-img-top" alt="...">
+		    <div class="card-body">
+		      <h5 class="card-title">Card title</h5>
+		      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+		      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+		    </div>
+		  </div>
+		  <div class="card">
+		    <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg" class="card-img-top" alt="...">
+		    <div class="card-body">
+		      <h5 class="card-title">Card title</h5>
+		      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+		      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+		    </div>
+		  </div>
+		  <div class="card">
+		    <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg" class="card-img-top" alt="...">
+		    <div class="card-body">
+		      <h5 class="card-title">Card title</h5>
+		      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+		      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+		    </div>
+		  </div>
+		</div>
+
+
+{% endblock %}

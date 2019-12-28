@@ -1,0 +1,204 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+	<link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/png">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+	<title>
+	{% block title %}
+	{% endblock %}
+	</title>
+</head>
+
+<body>
+	<nav class="navbar">
+		<div><a class="nav_img_div" href="/"><span style="margin-left:0" class="style-jdwtzykllabel"><img style="width: 7%;" src="{% static 'logo.png' %}">Toggle Center</span></a></div>
+		<div class="nav_menu_div">
+			<ul class="menu_btns">
+				<li><a href="/"><span>Գլխավոր</span></a></li>
+        <li>
+        <div class="dropdown show dd_nav_menu_div dropdown">
+          <a role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Տեսականի <i class="fa fa-caret-down"></i>
+          </a>
+          <div class="dropdown-menu dd_nav_menu_div dropdown-content" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="{% url 'products' %}">Ամբողջ տեսականի</a>
+            <a class="dropdown-item" href="{% url 'products_best' %}">Լավագույն առաջարկ</a>
+            <a class="dropdown-item" href="#">Զեղչված տեսականի</a>
+          </div>
+        </div>
+      </li>
+				<li><a href="{% url 'contacts' %}"><span>Հետադարձ կապ</span></a></li>
+				<li><a href="#"><span>Մեր մասին</span></a></li>
+			</ul>
+				<!-- <a href="#"><i class="style-jdwtzykllabel fas fa-shopping-bag"></i></a> -->
+		</div>
+
+	</nav>
+	<div class="main_div">
+	{% block main %}
+	{% endblock %}
+	</div>
+
+
+	<!-- Footer -->
+<footer class="main_div page-footer font-small unique-color-dark">
+
+  <div style="background-color: #6E3FFB; display: flex;">
+    <div class="container">
+
+      <!-- Grid row-->
+      <div class="row py-4 d-flex align-items-center">
+
+        <!-- Grid column -->
+        <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+          <h6 class="mb-0 mt-0" style="color: #fff; font-size: 15px;">Միացեք մեզ սոց.կայքերում</h6>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-6 col-lg-7 text-center text-md-right">
+
+          <!-- Facebook -->
+          <a class="fb-ic">
+            <i class="fab fa-facebook-f white-text mr-4"> </i>
+          </a>
+          <!-- Twitter -->
+          <a class="tw-ic">
+            <i class="fab fa-twitter white-text mr-4"> </i>
+          </a>
+          <!-- Google +-->
+          <a class="gplus-ic">
+            <i class="fab fa-google-plus-g white-text mr-4"> </i>
+          </a>
+          <!--Linkedin -->
+          <a class="li-ic">
+            <i class="fab fa-linkedin-in white-text mr-4"> </i>
+          </a>
+          <!--Instagram-->
+          <a class="ins-ic">
+            <i class="fab fa-instagram white-text"> </i>
+          </a>
+
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row-->
+
+    </div>
+  </div>
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left mt-5">
+
+    <!-- Grid row -->
+    <div class="row mt-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+
+        <!-- Content -->
+        <h6 class="text-uppercase font-weight-bold">Company name</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+          consectetur
+          adipisicing elit.</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Ապրանքներ</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <a href="#">MDBootstrap</a>
+        </p>
+        <p>
+          <a href="#">MDWordPress</a>
+        </p>
+        <p>
+          <a href="#">BrandFlow</a>
+        </p>
+        <p>
+          <a href="#">Bootstrap Angular</a>
+        </p>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <a href="#">Your Account</a>
+        </p>
+        <p>
+          <a href="#">Become an Affiliate</a>
+        </p>
+        <p>
+          <a href="#">Shipping Rates</a>
+        </p>
+        <p>
+          <a href="#">Help</a>
+        </p>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Կոնտակտներ</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <i class="fas fa-home mr-3"></i> Երևան, Հայաստան</p>
+        <p>
+          <i class="fas fa-envelope mr-3"></i> info@example.com</p>
+        <p>
+          <i class="fas fa-phone mr-3"></i> + 374 93 083 518</p>
+        <p>
+          <i class="fab fa-viber mr-3"></i></i> + 374 93 083 518</p>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© {% now "Y"  %} Copyright
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+<button class="btn btn-warning scroll-top" data-scroll="up" type="button">
+<i class="fa fa-chevron-up"></i>
+</button>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{% static 'js/func.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Ամբողջ տեսականի:
+{% endblock %}
+
+{% block main %}
+<div style="display: flex;    margin: 0% -4% 0% -4%;">
+	{% include 'includes/menu_prod.html' %}
+<div class="prod_card_list row col-9">
+{% for p in prod %}
+<div class="card">
+	<div>
+		{% if p.best %}
+		<span class="av_or_nav prod_best">Լավագույն</span>
+		{% endif %}
+		{% if p.available %}
+		<span class="available av_or_nav">Առկա է</span>
+		{% else %}
+		<span class="av_or_nav">Առկա չէ</span>
+		{% endif %}
+	</div>
+  <img src="{{ p.image.url }}" alt="{{ p.name }}" style="width: 250px;height: 200px; padding: 2%;">
+  <h3>{{ p.name }}</h3>
+  <p class="price">{{ p.price }} դր.</p>
+  <p>{{ p.about }}</p>  
+		<div>
+			{% for e in '12345'|make_list %}
+				{% if forloop.counter <= p.rate %}
+					<i class="fas fa-star" title="{{ p.rate | floatformat:-2 }}"></i>
+				{% else %}
+					<i class="far fa-star" title="{{ p.rate | floatformat:-2 }}"></i>
+				{% endif %}
+			{% endfor %}
+		</div>
+  <p><a class="btn" href="{% url 'prd_det' prd=p.slug %}">Դիտել ավելին</a></p>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endblock %}
